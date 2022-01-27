@@ -1,0 +1,3 @@
+Este es archivo temporal
+que vamos a borrar
+para aprender a borrarficheros del repo
