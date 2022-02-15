@@ -1,0 +1,18 @@
+/* Propiedades de la caja del cuerpo */
+body {
+  background-image: url(BigBangLogo.png);
+  background-size: cover;
+  color:black;
+}
+
+div {
+  font-family: sans-serif;
+  padding: 7.5px;
+  border: solid;
+  border-color: rgb(0, 0, 0);
+  border-radius: 5px;
+  background-color: rgba(92, 92, 97, 0.836);
+}
+  
+  /*  Propiedades de la caja del párrafo */
+  p {}
