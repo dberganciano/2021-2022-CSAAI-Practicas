@@ -46,7 +46,7 @@ div {
   }
 
   leftcolumn{
-    font-family: sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     float: left;
     width: 25%;
     padding: 25px;
@@ -59,6 +59,7 @@ div {
 }
 
 rightcolumn{
+    font-family: 'Times New Roman', Times, serif;
     float: left;
     width: 65%;
     padding: 25px;
