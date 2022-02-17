@@ -21,6 +21,7 @@ div {
     padding: 10px;
     border: solid;
     border-color: black;
+    background-color: rgba(225, 237, 238, 0.753);
   }
 
   h2 {
@@ -29,6 +30,7 @@ div {
     padding: 10px;
     border: solid;
     border-color: black;
+    background-color: rgba(225, 237, 238, 0.753);
   }
   
   /*  Propiedades de la caja del párrafo */
@@ -55,9 +57,6 @@ div {
     float: left;
     width: 25%;
     padding: 25px;
-    /*padding-left: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;*/
     outline-style: solid;
     outline-color:black;
     outline-offset: -8px;
