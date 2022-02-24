@@ -14,6 +14,11 @@ div {
   background-color: rgba(92, 92, 97, 0.836);
 }
 
+img {
+  width: 100%;
+  height: auto;
+}
+
 h1 {
   text-align: center;
   margin: 10px;
