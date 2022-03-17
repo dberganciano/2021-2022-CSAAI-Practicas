@@ -1,105 +1,88 @@
 console.log("Ejecutando JS...");
 
-//Elementos fuera de clases
+//Elementos de la interfaz fuera de clases
 display = document.getElementById("display")
 clear = document.getElementById("clear")
-clearlast = document.getElementById("clearlast")
 igual = document.getElementById("igual")
+clearlast = document.getElementById("clearlast")
+coma = document.getElementById("coma")
 
-//Elementos dentro de clases
-let digitos = document.getElementsByClassName("digit")
-let operacion = document.getElementsByClassName("operation")
+//Elementos de la interfaz dentro de clases
+let digits = document.getElementsByClassName("digit")
+let operations = document.getElementsByClassName("operator")
 
 //Estados de la calculadora
 const ESTADO = {
     INIT: 0,
     OP1: 1,
     OPERATION: 2,
-    OP2_INIT: 3,
-    OP2: 4
-};
+    OP2: 3
+}
 
-//Inicializamos el valor inical del estado
+//Por defecto el estado inicial de la calculadora
 let estado = ESTADO.INIT;
 
-//Bucle que lee las operaciones que le vamos metiendo
-for(i=0; i<operacion.length; i++) {
-    operation[i].onclick = (ev) =>{
-        operaciones(ev.target.value);
-        console.log(estado, "operacion");
-    }
-}
-
-//Bucle que lee los digitos que le vamos metiendo
-for(i=0; i<digitos.length; i++) {
-    digitos[i].onclick = (ev) =>{
-        digitos(ev.target.value);
-        console.log(estado, "digito");
-    }
-}
-
-//Tecla clearlast
-clearlast.onclick = (ev) => {
-    if (currentvalue == "On") {
-        if(estado = ESTADO.OPERATION);
-        display.innerHTML = display.innerHTML.slice(0,-1);
-        console.log(estado,"clear last digit");
-    }
-}
-
-//Tecla coma
-coma.onclick = (ev) => {
-    if(currentvalue == "On") {
-        if(estado = ESTADO.OP1 || estado == ESTADO.OP2_INIT || estado == ESTADO.INIT); {
-            display.innerHTML = display.innerHTML.slice(0,-1);
-            console.log(estado,"coma")
-        }
-    }
-}
-
-//Tecla igual
-igual.onclick = (ev) => {
-    if(currentvalue == "On") {
-        display.innerHTML == eval(display.innerHTML);
-        console.log(estado, "igual");
-    }
-}
-
-//Tecla clear
-clear.onclick = (ev) => {
-    if(currentvalue == "On") {
-        display.innerHTML == "0";
-        estado = ESTADO.INIT;
-        console.log(estado, "set to 0")
-    }
-}
-
-//Funcion de retrollamada de los digitos
+//Funcion retrollamada de estado de los digitos
 function digito(boton) {
-    if(currentvalue == "On") {
-        if(estado == ESTADO.INIT) {
-            display.innerHTML = boton;
-            estado = ESTADO.OP1;
-        } else if (estado == ESTADO.OP1) {
-            display.innerHTML += boton;
-        } else if (estado == ESTADO.OPERATION) {
-            display.innerHTML += boton;
-            estado = ESTADO.OP2_INIT;
-        } else if (estado == ESTADO.OP2_INIT) {
-            display.innerHTML += boton;
-            estado = ESTADO.OP2;
-        } else if (estado == ESTADO.OP2) {
-            display.innerHTML += boton;
-        }
+    if (estado == ESTADO.INIT) {
+        display.innerHTML = ev.target.value;
+        estado = ESTADO.OP1;
+    } else if (estado == ESTADO.OP1) {
+        display.innerHTML += ev.target.value;
+    } else if (estado == ESTADO.OPERATION) {
+        display.innerHTML += ev.target.value;
+        estado = ESTADO.OP2;
+    } else if (estado == ESTADO.OP2) {
+        display.innerHTML += ev.target.value;
     }
 }
 
-//Comprobacion de estado de las operaciones
-function operaciones(operacion) {
-    if(currentvalue == "On") {
-        if (estado != ESTADO.OPERATION) {
-            display.innerHTML += operacion;
-            estado = ESTADO.OPERATION;
-        }
+//Funcion retrollamada de estado de los operadores
+function operador(ev) {
+    if (estado != ESTADO.OPERATION) {
+        display.innerHTML += operations;
+        estado = ESTADO.OPERATION;
+    }
+}
+
+//Funcion de retrollamada para los digitos
+for (let boton of digits) {
+    boton.onclick = (ev) => {
+        display.innerHTML += ev.target.value;
+        console.log(estado, "digit");
+    }
+}
+
+//Funcion de retrollamada para las operaciones
+for (let boton of operations) {
+    boton.onclick = (ev) => {
+        display.innerHTML += ev.target.value;
+        console.log(estado, "operation");
+    }
+}
+
+//Resto de funciones de retrollamada
+
+//Poner a 0 la expresion
+clear.onclick = () => {
+    display.innerHTML = "0";
+    estado = ESTADO.INIT;
+}
+
+//Evaluar la expresion
+igual.onclick = () => {
+    display.innerHTML = eval(display.innerHTML);
+}
+
+//Eliminar el ultimo elemento
+clearlast.onclick = () => {
+    display.innerHTML = display.innerHTML.slice(0,-1);
+}
+
+//Crear un digito con coma
+coma.onclick = () => {
+    if (estado == ESTADO.OP1 || estado == ESTADO.OP2 || estado == ESTADO.INIT) {
+    display.innerHTML = coma.innerHTML;
+    estado = ESTADO.OPERATION
     }
 }

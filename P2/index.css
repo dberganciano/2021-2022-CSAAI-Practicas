@@ -1,5 +1,5 @@
 body {
-   /* background-image: ; */
+    background-image: url(batman.webp); 
     background-size: cover;
     color: black;
 }
@@ -9,8 +9,9 @@ body {
     border-radius: 10px;
     width: 450px;
     padding: 20px;
-    background-color: rgba(250, 171, 0, 0.945);
+    background-image: url(batman.jpg);
     margin: auto;
+    margin-top: 150px;
 }
 
 #display {
