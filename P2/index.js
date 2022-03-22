@@ -5,7 +5,6 @@ display = document.getElementById("display")
 clear = document.getElementById("clear")
 igual = document.getElementById("igual")
 clearlast = document.getElementById("clearlast")
-coma = document.getElementById("coma")
 
 //Elementos de la interfaz dentro de clases
 let digits = document.getElementsByClassName("digit")
@@ -22,21 +21,6 @@ const ESTADO = {
 //Por defecto el estado inicial de la calculadora
 let estado = ESTADO.INIT;
 
-//Funcion retrollamada de estado de los digitos
-function digito(boton) {
-    if (estado == ESTADO.INIT) {
-        display.innerHTML = ev.target.value;
-        estado = ESTADO.OP1;
-    } else if (estado == ESTADO.OP1) {
-        display.innerHTML += ev.target.value;
-    } else if (estado == ESTADO.OPERATION) {
-        display.innerHTML += ev.target.value;
-        estado = ESTADO.OP2;
-    } else if (estado == ESTADO.OP2) {
-        display.innerHTML += ev.target.value;
-    }
-}
-
 //Funcion retrollamada de estado de los operadores
 function operador(ev) {
     if (estado != ESTADO.OPERATION) {
@@ -48,7 +32,17 @@ function operador(ev) {
 //Funcion de retrollamada para los digitos
 for (let boton of digits) {
     boton.onclick = (ev) => {
-        display.innerHTML += ev.target.value;
+        if (estado == ESTADO.INIT) {
+            display.innerHTML += ev.target.value;
+            estado = ESTADO.OP1;
+        } else if (estado == ESTADO.OP1) {
+            display.innerHTML += ev.target.value;
+        } else if (estado == ESTADO.OPERATION) {
+            display.innerHTML += ev.target.value;
+            estado = ESTADO.OP2;
+        } else if (estado == ESTADO.OP2) {
+            display.innerHTML += ev.target.value;
+        }
         console.log(estado, "digit");
     }
 }
@@ -56,7 +50,10 @@ for (let boton of digits) {
 //Funcion de retrollamada para las operaciones
 for (let boton of operations) {
     boton.onclick = (ev) => {
-        display.innerHTML += ev.target.value;
+        if (estado != ESTADO.OPERATION) {
+            display.innerHTML += ev.target.value;
+            estado = ESTADO.OPERATION;
+        }
         console.log(estado, "operation");
     }
 }
@@ -77,12 +74,4 @@ igual.onclick = () => {
 //Eliminar el ultimo elemento
 clearlast.onclick = () => {
     display.innerHTML = display.innerHTML.slice(0,-1);
-}
-
-//Crear un digito con coma
-coma.onclick = () => {
-    if (estado == ESTADO.OP1 || estado == ESTADO.OP2 || estado == ESTADO.INIT) {
-    display.innerHTML = coma.innerHTML;
-    estado = ESTADO.OPERATION
-    }
 }
