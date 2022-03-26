@@ -1,14 +1,14 @@
 console.log("Ejecutando JS...");
 
 //Elementos de la interfaz fuera de clases
-display = document.getElementById("display")
-clear = document.getElementById("clear")
-igual = document.getElementById("igual")
-clearlast = document.getElementById("clearlast")
+display = document.getElementById("display");
+clear = document.getElementById("clear");
+igual = document.getElementById("igual");
+clearlast = document.getElementById("clearlast");
 
 //Elementos de la interfaz dentro de clases
-let digits = document.getElementsByClassName("digit")
-let operations = document.getElementsByClassName("operator")
+let digits = document.getElementsByClassName("digit");
+let operations = document.getElementsByClassName("operator");
 
 //Estados de la calculadora
 const ESTADO = {
@@ -16,7 +16,7 @@ const ESTADO = {
     OP1: 1,
     OPERATION: 2,
     OP2: 3
-}
+};
 
 //Por defecto el estado inicial de la calculadora
 let estado = ESTADO.INIT;
@@ -44,7 +44,7 @@ for (let boton of digits) {
             display.innerHTML += ev.target.value;
         }
         console.log(estado, "digit");
-    }
+    };
 }
 
 //Funcion de retrollamada para las operaciones
@@ -55,23 +55,23 @@ for (let boton of operations) {
             estado = ESTADO.OPERATION;
         }
         console.log(estado, "operation");
-    }
+    };
 }
 
 //Resto de funciones de retrollamada
 
 //Poner a 0 la expresion
 clear.onclick = () => {
-    display.innerHTML = "0";
+    display.innerHTML = "";
     estado = ESTADO.INIT;
-}
+};
 
 //Evaluar la expresion
 igual.onclick = () => {
     display.innerHTML = eval(display.innerHTML);
-}
+};
 
 //Eliminar el ultimo elemento
 clearlast.onclick = () => {
     display.innerHTML = display.innerHTML.slice(0,-1);
-}
+};
