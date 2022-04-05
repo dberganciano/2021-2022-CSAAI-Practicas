@@ -1,0 +1,23 @@
+#structure {
+    text-align: center;
+}
+
+#buttons {
+    text-align: center;
+    margin-top: 10px;
+
+}
+
+h1 {
+    font-family: "Times New Roman", Times, serif;
+    margin: 10px;
+    padding: 10px;
+}
+#canvas {
+    background-color: black;
+    border-style: solid;
+    border-width: 1px;
+    border-color: gray;
+    border-radius: 5px;
+
+  }
