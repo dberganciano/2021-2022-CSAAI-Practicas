@@ -4,16 +4,16 @@ const canvas = document.getElementById("canvas");
 
 // Definimos el tamaño del canvas
 canvas.width = 400;
-canvas.height = 700;
+canvas.height = 680;
 
 // Obtenemos el contexto del canvas
 const ctx = canvas.getContext("2d");
 
 // Definimos las posiciones iniciales
 let xball = 200;
-let yball = 620;
+let yball = 600;
 let xtable = 160;
-let ytable = 640;
+let ytable = 620;
 
 // Definimos los puntos y las vidas
 var lifes = 3;
@@ -67,7 +67,7 @@ for (b = 36; b < 45; b++){
 // Definimos los sonidos
 const rebound_raquet = new Audio('P3_L9_pong-raqueta.mp3');
 const rebound_wall = new Audio('P3_L9_pong-rebote.mp3');
-const win_audio = new Audio('P3_L9_pong-tanto.mp3');
+const lose_audio = new Audio('P3_L9_pong-tanto.mp3');
 
 // Definimos los estados
 const ESTADO = {
@@ -107,8 +107,8 @@ function drawRacket() {
 // Definimos la red
 function drawNet() {
   ctx.beginPath();    
-    ctx.moveTo(0, 670);
-    ctx.lineTo(500, 670); 
+    ctx.moveTo(0, 650);
+    ctx.lineTo(500, 650); 
     ctx.setLineDash([10, 10]); //discontinua
     ctx.strokeStyle = 'white';
     ctx.stroke();
@@ -192,7 +192,6 @@ function win(){
       arraybricks[b].estado = 1
     }
   estado = ESTADO.WIN;
-  win_audio.play();
   }
 }
 
@@ -220,7 +219,7 @@ function update() {
     }
 
     // Limite de la red
-    if (yball > 670) {
+    if (yball > 650) {
       estado = ESTADO.INIT;
       lifes = lifes - 1;
     }
@@ -228,6 +227,7 @@ function update() {
     // Gameover
     if (lifes == 0) {
       estado = ESTADO.END;
+      lose_audio.play();
     }
 
     // Rebote en los lalilios
@@ -284,7 +284,7 @@ function update() {
   requestAnimationFrame(update);
   if (estado == ESTADO.INIT) {
     xball = 200;
-    yball = 620;
+    yball = 600;
     if(vely > 0) {
       vely = -vely
     }
