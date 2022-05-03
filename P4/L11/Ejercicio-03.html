@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Ej-05.css">
+    <script src="Ejercicio-03.js" defer></script>
+    <title>Ejercicio 03 </title>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <img src="FPGA.jpg" id="imagesrc">
+
+    <table>           
+        <th>
+            <p> <input type="button" value="COLORES" id="colores" ></p>
+        </th>
+        <th>
+            <p> <input type="button" value="GRISES" id="grises" > </p>
+        </th> 
+    </table>
+
+    <table id="sliders">  
+        <th>
+            <p> Rojo: </p>
+            <input type="range" id="red" min="0" max="255" value="255"/>
+            <p id="range_red">255</p>   
+        </th>
+        <th>
+            <p> Verde: </p>
+            <input type="range" id="green" min="0" max="255" value="255"/>
+            <p id="range_green">255</p>
+        </th>
+        <th>
+            <p> Azul: </p>
+            <input type="range" id="blue" min="0" max="255" value="255"/>
+            <p id="range_blue">255</p>
+        </th>
+    </table>  
+</body>
+</html>
