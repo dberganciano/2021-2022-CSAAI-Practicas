@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js" defer></script>
+    <title> Imagen </title>
+</head>
+<body>
+    
+    <img src="LukaDoncic.jpg" id="imagesrc" alt="Imagen">
+
+    <div id="structure">
+        <img src="LukaDoncic.jpg" alt="Imagen: Luka Doncic">
+        <canvas id="canvas"></canvas>
+    </div>
+    
+    <div>
+        <table>
+            <tr>
+                <th>
+                    <p> <input type="button" value="ORIGINAL" id="original"> </p>
+                </th>           
+                <th>
+                    <p> <input type="button" value="COLORES" id="colores"> </p>
+                </th>
+                <th>
+                    <p> <input type="button" value="GRISES" id="grises"> </p>
+                </th> 
+                <th>
+                    <p><input type="button" value="NEGATIVO" id="negativo" > </p>
+                </th>
+            </tr>
+        </table>
+
+        <table id="sliders">  
+            <tr>
+                <th>
+                    <p> Rojo: </p>
+                    <input type="range" id="red" min="0" max="255" value="255"/>
+                    <p id="range_red">255</p>   
+                </th>
+                <th>
+                    <p> Verde: </p>
+                    <input type="range" id="green" min="0" max="255" value="255"/>
+                    <p id="range_green">255</p>
+                </th>
+                <th>
+                    <p> Azul: </p>
+                    <input type="range" id="blue" min="0" max="255" value="255"/>
+                    <p id="range_blue">255</p>
+                </th>
+            </tr>
+        </table>  
+    </div>
+</body>
+</html>

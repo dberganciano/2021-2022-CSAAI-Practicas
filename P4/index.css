@@ -1,0 +1,65 @@
+body {
+    background-image: url(court.jpg);
+}
+
+#imagesrc {
+  display: none;
+}
+
+#structure {
+    margin-top: 50px;
+    text-align: center;
+}
+
+img {
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.999);
+}
+
+canvas {
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.999);
+}
+
+#original {    
+    margin-left: 720px;
+    height: 30px;
+    width: 110px;
+    border-radius: 20px; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+}
+
+#colores {
+
+    height: 30px;
+    width: 110px;
+    border-radius: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+}
+
+#grises {
+    height: 30px;
+    width: 110px;
+    border-radius: 20px; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+}
+
+#negativo {
+    height: 30px;
+    width: 110px;
+    border-radius: 20px; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+}
+
+#sliders{
+    margin-left: 720px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
