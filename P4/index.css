@@ -26,7 +26,7 @@ canvas {
 }
 
 #original {    
-    margin-left: 620px;
+    margin-left: 525px;
     height: 30px;
     width: 110px;
     border-radius: 20px; 
@@ -60,6 +60,6 @@ canvas {
 }
 
 #sliders{
-    margin-left: 720px;
+    margin-left: 550px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
